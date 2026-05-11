@@ -1,0 +1,71 @@
+/* Responsive */
+@media (max-width: 1024px) {
+
+  .hero-grid,
+  .company-grid,
+  .location-shell,
+  .contact-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-sidebar {
+    position: static;
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .summary-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 15, 30, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.8rem;
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.4rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .gallery-card {
+    flex: 0 0 260px;
+  }
+    .brand-logo {
+      width: 120px;
+      max-height: 42px;
+    }
+}

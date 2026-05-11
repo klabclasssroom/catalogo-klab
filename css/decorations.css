@@ -1,0 +1,25 @@
+/* Orbes decorativos */
+.page-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-1 {
+  width: 300px;
+  height: 300px;
+  left: -80px;
+  top: 60px;
+  background: var(--primary);
+}
+
+.orb-2 {
+  width: 360px;
+  height: 360px;
+  right: -90px;
+  top: 300px;
+  background: var(--accent);
+}

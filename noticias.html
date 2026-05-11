@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticias y próximos cursos | K-lab Costa Rica</title>
+  <meta name="description" content="Noticias, convocatorias y próximos cursos de K-lab Costa Rica." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-orb orb-1" aria-hidden="true"></div>
+  <div class="page-orb orb-2" aria-hidden="true"></div>
+  <main>
+    <section class="news-page-hero">
+      <div class="container reveal visible">
+        <span class="section-kicker">Actualidad K-Lab</span>
+        <h1>Noticias, convocatorias y próximos cursos</h1>
+        <p>Esta página muestra todas las publicaciones cargadas desde la fuente configurada en <strong>js/config.js</strong>.</p>
+      </div>
+    </section>
+
+    <section class="section news">
+      <div class="container">
+        <div class="news-grid" id="allNewsGrid" aria-live="polite"></div>
+        <p class="news-empty" id="allNewsEmpty" hidden>No hay noticias publicadas por el momento.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 K-lab Costa Rica. Catálogo de cursos.</p>
+      <a href="index.html#inicio">Volver al inicio ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script type="module">
+    import { renderAllNews } from './js/ui/news.js';
+    renderAllNews();
+  </script>
+</body>
+</html>
