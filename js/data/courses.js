@@ -485,4 +485,142 @@ export const courses = [
       </div>
     `
   }
+
+  ,{
+  id: 'modi-master-kit-ia-bloques',
+  title: 'Introducción a MODI Master Kit + IA',
+  category: 'iot',
+  level: 'Básico - Intermedio',
+  duration: '5 días / 15 horas',
+  format: 'Teoría / Práctica',
+  modality: 'Híbrida',
+  shortDescription: 'Aprende robótica educativa, automatización e inteligencia artificial usando MODI Master Kit, MODI Planet y programación en bloques.',
+  description: 'El curso Introducción a MODI Master Kit + IA permite a los estudiantes desarrollar competencias básicas e intermedias en robótica educativa, automatización e inteligencia artificial mediante programación en bloques utilizando la plataforma MODI Planet. Durante el curso, los estudiantes aprenderán fundamentos de electrónica, sensores, actuadores y lógica computacional aplicados al ecosistema MODI Master Kit. También explorarán conceptos introductorios de inteligencia artificial mediante entrenamiento de modelos de imágenes, sonidos y datos.',
+  requirements: [
+    'Estudiantes de cualquier carrera',
+    'Manejo básico de computadoras',
+    'Acceso a internet',
+    'No se requieren conocimientos previos de programación o electrónica'
+  ],
+  objectives: [
+    'Identificar los componentes principales del MODI Master Kit',
+    'Reconocer sensores, actuadores y módulos de comunicación',
+    'Comprender la lógica de programación en bloques',
+    'Construir mini proyectos automatizados utilizando sensores y actuadores',
+    'Programar comportamientos interactivos mediante MODI Planet',
+    'Interpretar datos obtenidos de sensores ambientales y módulos IMU',
+    'Diferenciar tipos de entrenamiento de IA: imágenes, sonidos y datos',
+    'Diseñar un proyecto final integrando electrónica, programación e inteligencia artificial'
+  ],
+  competencies: [
+    'Comprender fundamentos básicos de electrónica y automatización',
+    'Programar soluciones interactivas mediante bloques',
+    'Utilizar sensores y actuadores del MODI Master Kit',
+    'Interpretar datos en tiempo real',
+    'Implementar modelos básicos de inteligencia artificial',
+    'Diseñar proyectos tecnológicos con enfoque STEAM',
+    'Resolver problemas mediante pensamiento lógico y creativo'
+  ],
+  methodology: [
+    'STEAM',
+    'Learning by Doing',
+    'Aprendizaje Basado en Proyectos',
+    'Gamificación tecnológica',
+    'Experimentación práctica'
+  ],
+  syllabus: [
+    {
+      title: 'Día 1: Introducción a MODI Master Kit y electrónica básica',
+      topics: [
+        'Qué es MODI Master Kit',
+        'Aplicaciones de MODI en robótica e IA',
+        'Conceptos básicos de electrónica',
+        'Tipos de módulos: entrada, salida y comunicación',
+        'Conexión y sinergia entre módulos',
+        'Introducción a automatización interactiva'
+      ],
+      projects: [
+        'Linterna automática',
+        'Detector de objetos',
+        'Ventilador inteligente',
+        'Generador de colores arcoíris',
+        'Construcción de automóvil básico'
+      ]
+    },
+    {
+      title: 'Día 2: Programación en bloques con MODI Planet',
+      topics: [
+        'Introducción a MODI Planet',
+        'Tour de la plataforma',
+        'Bloques de entrada y salida',
+        'Condiciones, operadores, tiempo, bucles y eventos'
+      ],
+      projects: [
+        'Hola Mundo con MODI Kit',
+        'Impresión de nombre personalizado',
+        'Mensajes automáticos según temperatura',
+        'Semáforo inteligente',
+        'Cuenta regresiva interactiva',
+        'Casa domótica básica'
+      ]
+    },
+    {
+      title: 'Día 3: Visualización de datos y automatización inteligente',
+      topics: [
+        'Lectura y monitoreo de sensores en tiempo real',
+        'Interpretación de datos del módulo IMU',
+        'Coordenadas y movimiento X, Y, Z',
+        'Uso de sensores de temperatura, humedad, ruido, luminosidad, pulso, distancia, joystick e IMU'
+      ],
+      projects: [
+        'Control de motores con joystick',
+        'Movimiento y velocidad variable',
+        'Detector de terremotos usando IMU',
+        'Detector de inundaciones'
+      ]
+    },
+    {
+      title: 'Día 4: Introducción a Inteligencia Artificial con MODI',
+      topics: [
+        'Qué es la inteligencia artificial',
+        'Tipos de IA',
+        'Entrenamiento de modelos',
+        'IA aplicada a imágenes, sonidos y datos',
+        'Registro y uso de herramientas IA en MODI'
+      ],
+      projects: [
+        'Detector de barbijo',
+        'Sistema de asistencia con detección facial y distancia',
+        'Clasificación de sonidos',
+        'Detector inteligente de incendios'
+      ]
+    },
+    {
+      title: 'Día 5: Entrenamiento de datos y proyecto integrador',
+      topics: [
+        'Entrenamiento de datos con sensores',
+        'Interpretación de patrones',
+        'IA basada en datos',
+        'Integración de proyectos inteligentes'
+      ],
+      projects: [
+        'Detector de terremotos mediante IMU entrenado con IA',
+        'Proyecto final integrando sensores, automatización, programación en bloques e inteligencia artificial'
+      ]
+    }
+  ],
+  materials: [
+    'MODI Master Kit',
+    'Laptops o PCs',
+    'Conexión a internet'
+  ],
+  tags: [
+    'MODI',
+    'Robótica',
+    'Inteligencia Artificial',
+    'Programación en bloques',
+    'STEAM',
+    'Automatización'
+  ]
+}
 ];
