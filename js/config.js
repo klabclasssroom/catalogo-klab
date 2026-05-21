@@ -6,5 +6,5 @@ window.KLAB_NEWS_CONFIG = {
 window.KLAB_GALLERY_CONFIG = {
   sourceType: 'googleDriveAppsScript',
   sourceUrl: 'https://script.google.com/macros/s/AKfycbxXOpAjcKKGwrzeikxxtYkm-o-CAAPCQ05z2pn3cNYB9MU9ytrMsVdqG2R5TqVA6PUKsw/exec',
-  limit: 80,
+  limit: 90,
 };
