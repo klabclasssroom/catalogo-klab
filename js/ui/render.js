@@ -14,14 +14,14 @@ const {
 
 export function renderCategories() {
   categoryGrid.innerHTML = categories.map(cat => `
-    <article class="category-card reveal">
+    <a href="#catalogo" class="category-card reveal" data-category="${cat.id}" aria-label="Ver cursos de ${cat.name}">
       <div class="category-topline">
         <div class="icon">${cat.icon}</div>
         <span class="count-pill">${getCourseCount(cat.id)} cursos</span>
       </div>
       <h3>${cat.name}</h3>
       <p>${cat.description}</p>
-    </article>
+    </a>
   `).join('');
 }
 
@@ -36,7 +36,11 @@ export function renderFilters() {
 
 export function renderSummary() {
   categorySummary.innerHTML = categories.map(cat => `
-    <li><span>${cat.name}</span> <strong>${getCourseCount(cat.id)}</strong></li>
+    <li>
+      <button type="button" class="summary-item ${cat.id === activeFilter ? 'active' : ''}" data-category="${cat.id}">
+        <span>${cat.name}</span> <strong>${getCourseCount(cat.id)}</strong>
+      </button>
+    </li>
   `).join('');
 }
 

@@ -27,12 +27,36 @@
   gap: 0.6rem;
 }
 
-.summary-list li {
+.summary-item {
   display: flex;
   justify-content: space-between;
+  gap: 0.6rem;
+  width: 100%;
   padding: 0.5rem 0.8rem;
   background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
   border-radius: 10px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.summary-item:hover,
+.summary-item.active {
+  background: rgba(79, 125, 255, 0.12);
+  border-color: rgba(79, 125, 255, 0.3);
+}
+
+.summary-item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+#catalogo,
+#catalogStatus {
+  scroll-margin-top: 100px;
 }
 
 .filters {

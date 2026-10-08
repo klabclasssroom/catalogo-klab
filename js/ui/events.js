@@ -1,9 +1,12 @@
 import { dom } from '../dom.js';
 import { currentFilteredCourses, setActiveFilter } from '../state.js';
-import { renderFilters, renderCourses } from './render.js';
+import { renderFilters, renderSummary, renderCourses } from './render.js';
 import { openCourseModal, closeCourseModal } from './modal.js';
 
 const {
+  categoryGrid,
+  categorySummary,
+  catalogStatus,
   courseGrid,
   filterButtons,
   courseModal,
@@ -30,11 +33,31 @@ courseGrid.addEventListener('click', (e) => {
 });
 
 
+function applyFilter(filter) {
+  setActiveFilter(filter);
+  renderFilters();
+  renderSummary();
+  renderCourses();
+}
+
 // Evento de filtros
 filterButtons.addEventListener('click', (e) => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
-  setActiveFilter(btn.dataset.filter);
-  renderFilters();
-  renderCourses();
+  applyFilter(btn.dataset.filter);
+});
+
+// Acceso directo desde "Explorá por categoría": filtra y lleva al catálogo
+categoryGrid.addEventListener('click', (e) => {
+  const card = e.target.closest('.category-card');
+  if (!card) return;
+  applyFilter(card.dataset.category);
+});
+
+// Acceso directo desde el resumen "Distribución de cursos": filtra y lleva a los cursos
+categorySummary.addEventListener('click', (e) => {
+  const item = e.target.closest('.summary-item');
+  if (!item) return;
+  applyFilter(item.dataset.category);
+  catalogStatus.scrollIntoView();
 });
