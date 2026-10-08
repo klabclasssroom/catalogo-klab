@@ -1,3 +1,14 @@
+// Catálogo de cursos. El modal de cada curso se arma con estos campos (ver js/ui/modal.js):
+//   intro         Párrafo de presentación
+//   modality      Modalidad, lugar y horario
+//   instructor    Quién lo imparte
+//   requirements  Requisitos previos
+//   needs         Qué hay que traer o tener
+//   topics        Temario: textos, o { label, text } para "Semana 1", "Día 2", etc.
+//   includes      Otros detalles (interpretación, materiales, cupos…)
+//   free          true si es gratuito
+//   certificate   true si entrega certificado de K-Lab
+// Todos son opcionales: lo que no se indique no se muestra.
 export const courses = [
   {
     title: 'Crea tu propia red social',
@@ -6,16 +17,12 @@ export const courses = [
     weeks: '4 semanas',
     complexity: 'high',
     description: 'Desarrollo práctico de una red social desde cero.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>"Crea tu propia red social"</strong> 🚀</p>
-        <p>Aprende desarrollo full‑stack construyendo una red social completa desde cero.</p>
-        <p><strong>Requisitos:</strong> haber cursado "Fundamentos de Servicios Web" o tener conocimientos equivalentes.</p>
-        <p><strong>Quién lo imparte:</strong> equipo de K‑lab.</p>
-        <p>🎉 Curso gratuito, con interpretación coreano‑español.</p>
-        <p>📄 Certificado oficial al cumplir con la asistencia y las tareas.</p>
-      </div>
-    `
+    intro: 'Aprende desarrollo full-stack construyendo una red social completa desde cero.',
+    instructor: 'Equipo de K-Lab',
+    requirements: 'Haber cursado "Fundamentos de Servicios Web" o tener conocimientos equivalentes.',
+    includes: ['Interpretación coreano-español'],
+    free: true,
+    certificate: true
   },
   {
     title: 'Fundamentos del desarrollo web moderno',
@@ -24,15 +31,10 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Buenas prácticas y tecnologías actuales.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Fundamentos del desarrollo web moderno</strong> 👏</p>
-        <p><strong>Qué necesitas:</strong> Computadora portátil personal (si no tienes computadora portátil, puedes usar la computadora de la escuela) 💻</p>
-        <p>Aprende las bases del desarrollo web actual con estándares modernos y buenas prácticas.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Aprende las bases del desarrollo web actual con estándares modernos y buenas prácticas.',
+    needs: 'Computadora portátil personal (si no tienes, puedes usar la computadora de la escuela).',
+    free: true,
+    certificate: true
   },
   {
     title: 'Fundamentos de Servicios Web',
@@ -41,25 +43,16 @@ export const courses = [
     weeks: '4 semanas',
     complexity: 'low',
     description: 'Conceptos base de APIs y servicios web.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>¡Hola comunidad tech! ¿Alguna vez has soñado con crear TU PROPIA red social? 🚀 ¡Ahora puedes hacerlo realidad!</p>
-        <p>✨ <strong>Curso: Fundamentos de Servicios Web</strong> ✨</p>
-        <p>Aprende a crear tu mini Red Social desde cero en solo 4 semanas! 🔥</p>
-        <p>Lo mejor de todo? Al final del curso tendrás TU PROPIA PLATAFORMA funcionando! 🤩 No solo aprenderás la teoría, sino que saldrás con un proyecto real que podrás mostrar en tu portafolio! 💼</p>
-        <p>📚 <strong>Requisito:</strong> Solo conocimientos básicos de programación</p>
-        <p>Semana a semana construirás tu plataforma:</p>
-        <ul style="padding-left:1.5rem;">
-          <li><strong>Semana 1:</strong> Frontend y HTML/CSS 🎨</li>
-          <li><strong>Semana 2:</strong> JavaScript Básico ⚡</li>
-          <li><strong>Semana 3:</strong> Node.js y Express 🛠️</li>
-          <li><strong>Semana 4:</strong> MongoDB y Bootstrap 💪</li>
-        </ul>
-        <p>¡Imagina poder decir "Esta Red Social la construí yo mismo"! 😎</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Crea tu propia mini red social desde cero en 4 semanas. No solo aprenderás la teoría: terminarás con tu propia plataforma funcionando, lista para tu portafolio.',
+    requirements: 'Conocimientos básicos de programación.',
+    topics: [
+      { label: 'Semana 1', text: 'Frontend y HTML/CSS' },
+      { label: 'Semana 2', text: 'JavaScript básico' },
+      { label: 'Semana 3', text: 'Node.js y Express' },
+      { label: 'Semana 4', text: 'MongoDB y Bootstrap' }
+    ],
+    free: true,
+    certificate: true
   },
   {
     title: 'Fundamentos de Servicios Web – Frontend',
@@ -68,22 +61,14 @@ export const courses = [
     weeks: '4 semanas',
     complexity: 'medium',
     description: 'Interfaces frontend conectadas a servicios.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>¡Hola, comunidad tech!<br>¿Alguna vez has soñado con crear tu propia plataforma de red social? 🚀 ¡Ahora puedes hacerlo realidad!</p>
-        <p>✨ <strong>Curso: Fundamentos de Servicios Web – Frontend</strong> ✨</p>
-        <p>Este curso es la misma base que ofrecimos en mayo pasado con “Fundamentos de Servicios Web: Crea tu mini red social”, pero esta vez nos enfocaremos únicamente en la parte de frontend.<br>La parte de backend se ofrecerá después de finalizar este curso.</p>
-        <p>Durante 4 semanas, podrás dar forma paso a paso a tu propia plataforma digital:</p>
-        <ul style="padding-left:1.5rem;">
-          <li>✅ <strong>Frontend y HTML/CSS:</strong> principios web, entorno de desarrollo, fundamentos de HTML y CSS, creación de una mini interfaz tipo red social</li>
-          <li>✅ <strong>JavaScript básico:</strong> variables, funciones, DOM, eventos, simulación de comentarios en la plataforma</li>
-        </ul>
-        <p>📚 <strong>Requisito:</strong> conocimientos básicos de programación</p>
-        <p>Al finalizar el curso, tendrás tu propia plataforma digital funcional para agregar a tu portafolio.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Si cumples con la asistencia y los procedimientos requeridos (como enviar los formularios o tareas solicitadas), recibirás un certificado oficial de K-Lab al finalizar el curso.</p>
-      </div>
-    `
+    intro: 'La misma base de "Fundamentos de Servicios Web: Crea tu mini red social", enfocada únicamente en el frontend (el backend se ve en "Desarrollo web con K-Lab – Backend"). Al finalizar tendrás tu propia plataforma digital para tu portafolio.',
+    requirements: 'Conocimientos básicos de programación.',
+    topics: [
+      { label: 'Frontend y HTML/CSS', text: 'principios web, entorno de desarrollo, fundamentos de HTML y CSS, creación de una mini interfaz tipo red social' },
+      { label: 'JavaScript básico', text: 'variables, funciones, DOM, eventos, simulación de comentarios en la plataforma' }
+    ],
+    free: true,
+    certificate: true
   },
   {
     title: 'Desarrollo web con K-Lab – Backend',
@@ -92,21 +77,16 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Aprende Node.js, Express, MongoDB y Bootstrap con prácticas reales.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p><strong>Curso: Desarrollo web con K-Lab – Backend</strong></p>
-        <p>Aprende con prácticas reales:</p>
-        <ul style="padding-left:1.5rem;">
-          <li><strong>Node.js y Express:</strong> módulos, rutas, login, plantillas EJS</li>
-          <li><strong>MongoDB:</strong> CRUD, modelo de datos</li>
-          <li><strong>Bootstrap:</strong> mejora visual para tu mini red social</li>
-        </ul>
-        <p>📚 <strong>Requisito:</strong> conocimientos básicos de programación</p>
-        <p>💸 ¡Totalmente gratuito!</p>
-        <p>🌐 Interpretación consecutiva coreano-español durante todas las clases</p>
-        <p>Al finalizar, tendrás una plataforma digital propia para sumar a tu portafolio y certificado de K-Lab si completas los requisitos.</p>
-      </div>
-    `
+    intro: 'Aprende backend con prácticas reales y termina con una plataforma digital propia para sumar a tu portafolio.',
+    requirements: 'Conocimientos básicos de programación.',
+    topics: [
+      { label: 'Node.js y Express', text: 'módulos, rutas, login, plantillas EJS' },
+      { label: 'MongoDB', text: 'CRUD, modelo de datos' },
+      { label: 'Bootstrap', text: 'mejora visual para tu mini red social' }
+    ],
+    includes: ['Interpretación consecutiva coreano-español durante todas las clases'],
+    free: true,
+    certificate: true
   },
 
   {
@@ -116,18 +96,16 @@ export const courses = [
     weeks: '4 semanas',
     complexity: 'high',
     description: 'Aplicación de deep learning a imágenes médicas.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>¡Hola futuros expertos en IA médica! 🏥✨</p>
-        <p>¿Listos para llevar tus habilidades en Deep Learning al siguiente nivel en el mundo de la medicina? Este curso intensivo de 4 semanas te guiará, paso a paso, por todo el proceso: desde el procesamiento de imágenes médicas hasta modelos avanzados de segmentación y detección.</p>
-        <p><strong>Plataforma:</strong> Prácticas basadas en Google Colab</p>
-        <p><strong>Nivel:</strong> Intermedio (Requiere conocimientos de Python, PyTorch, y fundamentos de Deep Learning)</p>
-        <p>💡 Para un mejor aprovechamiento, recomendamos tener conocimientos en Python, PyTorch y conceptos básicos de Deep Learning. Sin embargo, si tienes curiosidad por la inteligencia artificial aplicada a la medicina, puedes participar incluso si no puedes realizar todas las prácticas.</p>
-        <p>Cada semana avanzaremos con proyectos más complejos: desde el manejo de formatos médicos y adquisición de datos, hasta clasificación y segmentación avanzada, todo realizado en Google Colab y enfocado en casos reales.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Si cumples con la asistencia y los procedimientos requeridos (como enviar los formularios o tareas solicitadas), recibirás un certificado oficial de K-Lab al finalizar el curso.</p>
-      </div>
-    `
+    intro: 'Curso intensivo que te guía paso a paso desde el procesamiento de imágenes médicas hasta modelos avanzados de segmentación y detección, con proyectos enfocados en casos reales.',
+    requirements: 'Nivel intermedio: se recomiendan conocimientos de Python, PyTorch y fundamentos de Deep Learning. Si te interesa la IA aplicada a la medicina, puedes participar aunque no puedas realizar todas las prácticas.',
+    topics: [
+      'Manejo de formatos médicos y adquisición de datos',
+      'Clasificación de imágenes médicas',
+      'Segmentación y detección avanzada'
+    ],
+    includes: ['Prácticas en Google Colab'],
+    free: true,
+    certificate: true
   },
   {
     title: 'Prompts y LLM (ChatGPT)',
@@ -136,16 +114,11 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Diseño de prompts efectivos y servicios de IA.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Prompts y Comprensión de Servicios de IA basados en LLM (ChatGPT)</strong> 👏</p>
-        <p><strong>Requisitos:</strong> Abierto a estudiantes de cualquier año en carreras de ingeniería. Se recomienda experiencia previa en Python, aunque no es obligatorio.</p>
-        <p>Qué necesitas: Computadora portátil personal 💻</p>
-        <p>Aprende a diseñar prompts efectivos y a integrar servicios de IA generativa en tus proyectos.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Aprende a diseñar prompts efectivos y a integrar servicios de IA generativa basados en LLM (como ChatGPT) en tus proyectos.',
+    requirements: 'Abierto a estudiantes de cualquier año en carreras de ingeniería. Se recomienda experiencia previa en Python, aunque no es obligatoria.',
+    needs: 'Computadora portátil personal.',
+    free: true,
+    certificate: true
   },
   {
     title: 'La IA para todos',
@@ -154,21 +127,15 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Introducción accesible a la inteligencia artificial.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Descubre "La inteligencia artificial para todos": un curso introductorio y práctico donde explorarás aplicaciones reales, programación con Python y deep learning.</p>
-        <p><strong>🟢 Contenido del curso:</strong></p>
-        <ul style="padding-left:1.5rem;">
-          <li>Aplicaciones prácticas de IA</li>
-          <li>Programación con Python</li>
-          <li>Modelos de deep learning</li>
-        </ul>
-        <p>💸 ¡Totalmente gratuito!</p>
-        <p>🌐 Interpretación consecutiva coreano-español durante todas las clases</p>
-        <p>Ideal para principiantes y para quienes quieren crear su propio modelo.</p>
-        <p>Al finalizar, tendrás una plataforma digital propia para sumar a tu portafolio y certificado de K-Lab si completas los requisitos.</p>
-      </div>
-    `
+    intro: 'Curso introductorio y práctico, ideal para principiantes y para quienes quieren crear su propio modelo.',
+    topics: [
+      'Aplicaciones prácticas de IA',
+      'Programación con Python',
+      'Modelos de deep learning'
+    ],
+    includes: ['Interpretación consecutiva coreano-español durante todas las clases'],
+    free: true,
+    certificate: true
   },
   {
     title: 'Programación Agéntica',
@@ -177,16 +144,14 @@ export const courses = [
     weeks: '5 semanas',
     complexity: 'medium',
     description: 'Planificar, controlar y verificar código generado por agentes de IA.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Programación Agéntica</strong> 🤖</p>
-        <p>Aprende a planificar, controlar y verificar el código generado por agentes de inteligencia artificial.</p>
-        <p><strong>Modalidad:</strong> Virtual por Zoom, martes y viernes de 5:00 p.m. a 8:00 p.m. (8 sesiones).</p>
-        <p>👩‍💻 Los estudiantes regulares (30 cupos) reciben una cuenta de ChatGPT Codex por 30 días; la asistencia es obligatoria para mantenerla activa. También se puede participar como oyente.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado de participación de K-Lab al cumplir con la asistencia y las tareas.</p>
-      </div>
-    `
+    intro: 'Aprende a planificar, controlar y verificar el código generado por agentes de inteligencia artificial.',
+    modality: 'Virtual por Zoom, martes y viernes de 5:00 p.m. a 8:00 p.m. (8 sesiones).',
+    includes: [
+      'Los estudiantes regulares (30 cupos) reciben una cuenta de ChatGPT Codex por 30 días; la asistencia es obligatoria para mantenerla activa.',
+      'También se puede participar como oyente.'
+    ],
+    free: true,
+    certificate: true
   },
   {
     title: 'Introducción a la IA para la Agricultura',
@@ -195,14 +160,11 @@ export const courses = [
     weeks: '2 semanas',
     complexity: 'low',
     description: 'Herramientas de IA aplicadas al agro, sin necesidad de programar.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Introductorio de IA para la Agricultura</strong> 🌱</p>
-        <p>Conoce herramientas de inteligencia artificial aplicadas a la agricultura, sin necesidad de programar.</p>
-        <p><strong>Modalidad:</strong> Virtual por Zoom, viernes y sábados de 5:00 p.m. a 8:00 p.m. (4 sesiones).</p>
-        <p>🎉 El curso es totalmente gratuito. Cupo limitado.</p>
-      </div>
-    `
+    intro: 'Conoce herramientas de inteligencia artificial aplicadas a la agricultura.',
+    modality: 'Virtual por Zoom, viernes y sábados de 5:00 p.m. a 8:00 p.m. (4 sesiones).',
+    requirements: 'No se necesita saber programar.',
+    includes: ['Cupo limitado'],
+    free: true
   },
 
   {
@@ -212,15 +174,10 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Primeros pasos en electrónica y programación.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>básico de Arduino</strong> 👏</p>
-        <p><strong>Qué necesitas:</strong> Computadora portátil personal (si no tienes computadora portátil, puedes usar la computadora de la escuela) 💻</p>
-        <p>Aprende los fundamentos de la electrónica y la programación con Arduino de forma práctica.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Aprende los fundamentos de la electrónica y la programación con Arduino de forma práctica.',
+    needs: 'Computadora portátil personal (si no tienes, puedes usar la computadora de la escuela).',
+    free: true,
+    certificate: true
   },
   {
     title: 'ESP32 con WiFi',
@@ -229,15 +186,11 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Soluciones conectadas con ESP32.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>ESP32 utilizando WiFi</strong> 👏</p>
-        <p><strong>Qué necesitas:</strong> Computadora portátil personal (si no tienes computadora portátil, puedes usar la computadora de la escuela) 💻</p>
-        <p>ESP32 es un curso intermedio, por lo que se requieren conocimientos mínimos de Arduino. 📱</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Curso intermedio para crear soluciones conectadas usando el ESP32 y su WiFi.',
+    requirements: 'Conocimientos mínimos de Arduino.',
+    needs: 'Computadora portátil personal (si no tienes, puedes usar la computadora de la escuela).',
+    free: true,
+    certificate: true
   },
   {
     title: 'Simulación Arduino en Tinkercad',
@@ -246,16 +199,11 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Simulación de circuitos y programación básica.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>"Simulación Arduino en Tinkercad"</strong> 🔧</p>
-        <p>Ideal para empezar sin hardware: diseña y programa circuitos virtuales paso a paso.</p>
-        <p><strong>Requisitos:</strong> ninguno, solo ganas de aprender electrónica.</p>
-        <p><strong>Qué necesitas:</strong> laptop y conexión a Internet.</p>
-        <p>🎉 Totalmente gratuito.</p>
-        <p>📄 Certificado oficial al cumplir con la asistencia y las actividades.</p>
-      </div>
-    `
+    intro: 'Ideal para empezar sin hardware: diseña y programa circuitos virtuales paso a paso.',
+    requirements: 'Ninguno, solo ganas de aprender electrónica.',
+    needs: 'Laptop y conexión a internet.',
+    free: true,
+    certificate: true
   },
   {
     title: 'Sensores y Actuadores con Arduino',
@@ -264,16 +212,11 @@ export const courses = [
     weeks: null,
     complexity: 'high',
     description: 'Integración avanzada de sensores y actuadores.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>"Sensores y Actuadores con Arduino"</strong> ⚙️</p>
-        <p>Aprende a leer sensores, controlar motores y construir sistemas interactivos.</p>
-        <p><strong>Requisitos:</strong> haber llevado el curso básico de Arduino.</p>
-        <p><strong>Qué necesitas:</strong> laptop y (opcional) un kit de sensores/actuadores.</p>
-        <p>🎉 Curso gratuito.</p>
-        <p>📄 Certificado oficial al cumplir con los requisitos del curso.</p>
-      </div>
-    `
+    intro: 'Aprende a leer sensores, controlar motores y construir sistemas interactivos.',
+    requirements: 'Haber llevado el curso básico de Arduino.',
+    needs: 'Laptop y, opcionalmente, un kit de sensores y actuadores.',
+    free: true,
+    certificate: true
   },
 
   {
@@ -283,15 +226,11 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Conceptos esenciales de AWS.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Descubre tu futuro en la tecnología de la nube ⬆️☁️⬇️</p>
-        <p>También aprenderás contenidos necesarios para obtener la certificación de AWS 🎓.</p>
-        <p>✏️ <strong>Costo de participación:</strong> Gratuito (cubrimos los costos del uso individual de cuentas en la nube)</p>
-        <p>📌 <strong>Proveedor del curso:</strong> K-Lab_Bespin Global (Proveedor líder de servicios gestionados en la nube en Corea del Sur)</p>
-        <p>✏️ <strong>Requisito:</strong> Traer computadora portátil personal</p>
-      </div>
-    `
+    intro: 'Descubre tu futuro en la tecnología de la nube y aprende los contenidos necesarios para obtener la certificación de AWS.',
+    instructor: 'K-Lab con Bespin Global (proveedor líder de servicios gestionados en la nube en Corea del Sur)',
+    needs: 'Computadora portátil personal.',
+    includes: ['K-Lab cubre los costos del uso individual de cuentas en la nube'],
+    free: true
   },
   {
     title: 'AWS Introductorio (Nivel 1)',
@@ -300,21 +239,12 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Primer acercamiento a la nube de AWS.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>¡Da tu primer paso en la nube con K-Lab! ☁️</p>
-        <p>¿Te interesa el mundo de la tecnología, la nube y AWS?</p>
-        <p>👉 Tenemos el curso perfecto para comenzar:</p>
-        <p>✅ <strong>Curso de AWS - Introductorio (Nivel 1)</strong></p>
-        <p>💻 Traé tu laptop personal</p>
-        <p>🎓 Ideal para quienes quieren iniciarse en la nube</p>
-        <p>🎁 Incluye cuenta gratuita de AWS y acceso a laboratorios prácticos</p>
-        <p>🟡 ¿Querés seguir aprendiendo?</p>
-        <p>¡El curso de Nivel 2 comienza justo después del Introductorio!</p>
-        <p>👉 Con AWS Esencial vas a aplicar lo aprendido con prácticas reales y arquitectura de alta disponibilidad.</p>
-        <p>🟡 Curso de AWS - Esencial (Nivel 2) ✨ Te recomendamos inscribirte en ambos para sacar el máximo provecho.</p>
-      </div>
-    `
+    intro: 'Da tu primer paso en la nube con K-Lab. Ideal para quienes quieren iniciarse en el mundo de la tecnología, la nube y AWS.',
+    needs: 'Laptop personal.',
+    includes: [
+      'Cuenta gratuita de AWS y acceso a laboratorios prácticos',
+      'AWS Esencial (Nivel 2) comienza justo después de este curso; te recomendamos inscribirte en ambos'
+    ]
   },
   {
     title: 'AWS Esencial (Nivel 2)',
@@ -323,19 +253,10 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Profundización en servicios y arquitectura.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>¡Experimentá alta disponibilidad en la práctica!</p>
-        <p>¿Querés llevar tu aprendizaje en la nube al siguiente nivel?</p>
-        <p>📣 <strong>Curso de AWS – Esencial (Nivel 2)</strong></p>
-        <p>💻 Traé tu laptop personal</p>
-        <p>✨ Prioridad para quienes también tomen el Curso Introductorio</p>
-        <p>🎁 Incluye cuenta gratuita de AWS y acceso a laboratorios prácticos</p>
-        <p>✅ ¿Aún no tomaste el Curso Introductorio (Nivel 1)?<br>👉 Comenzá por la base y aprovechá al máximo la experiencia.</p>
-        <p>🚀 ¡Dominá AWS desde lo básico hasta la práctica real en un solo impulso!</p>
-        <p>🧩 ¡Formate con ambos cursos y llevá tu perfil al siguiente nivel!</p>
-      </div>
-    `
+    intro: 'Lleva tu aprendizaje en la nube al siguiente nivel aplicando lo aprendido con prácticas reales y arquitectura de alta disponibilidad.',
+    requirements: 'Se recomienda haber tomado AWS Introductorio (Nivel 1); tienen prioridad quienes también tomen ese curso.',
+    needs: 'Laptop personal.',
+    includes: ['Cuenta gratuita de AWS y acceso a laboratorios prácticos']
   },
 
   {
@@ -345,16 +266,11 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Amenazas, conceptos y prácticas básicas.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Te invitamos al curso <strong>Introducción a la Seguridad Informática - Parte 1</strong> 👏</p>
-        <p><strong>Requisitos:</strong> Estudiantes de tercer año o superior en carreras de ingeniería, o con conocimientos básicos en introducción a la informática</p>
-        <p>Qué necesitas: Computadora portátil personal 💻</p>
-        <p>Aprende los fundamentos de la seguridad digital, identificación de amenazas y buenas prácticas de protección.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Parte 1: aprende los fundamentos de la seguridad digital, la identificación de amenazas y buenas prácticas de protección.',
+    requirements: 'Estudiantes de tercer año o superior en carreras de ingeniería, o con conocimientos básicos de informática.',
+    needs: 'Computadora portátil personal.',
+    free: true,
+    certificate: true
   },
   {
     title: 'Introducción a la Ciberseguridad',
@@ -363,22 +279,17 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Riesgos y protección en entornos digitales.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p><strong>🎯 Requisitos:</strong> ¡Solo interés en aprender sobre ciberseguridad, abierto a todos!</p>
-        <p>💸 ¡Totalmente gratuito!</p>
-        <p>🌐 Interpretación consecutiva coreano-español durante toda la clase</p>
-        <p>📄 Certificado oficial de K-Lab si cumples con la asistencia mínima</p>
-        <h4 style="margin-top:1.5rem;">🔎 ¿Qué aprenderás en este curso?</h4>
-        <ul style="padding-left:1.5rem;">
-          <li>Fundamentos de la ciberseguridad</li>
-          <li>Principales tipos y casos de ataques cibernéticos</li>
-          <li>Métodos para detectar, defenderse y responder ante ciberataques</li>
-          <li>Estrategias prácticas y casos reales</li>
-        </ul>
-        <p style="margin-top:1rem;">¡Empieza tu camino en la ciberseguridad junto a un experto internacional!</p>
-      </div>
-    `
+    intro: 'Empieza tu camino en la ciberseguridad junto a un experto internacional.',
+    requirements: 'Solo interés en aprender sobre ciberseguridad; abierto a todos.',
+    topics: [
+      'Fundamentos de la ciberseguridad',
+      'Principales tipos y casos de ataques cibernéticos',
+      'Métodos para detectar, defenderse y responder ante ciberataques',
+      'Estrategias prácticas y casos reales'
+    ],
+    includes: ['Interpretación consecutiva coreano-español durante toda la clase'],
+    free: true,
+    certificate: true
   },
 
   {
@@ -388,16 +299,11 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Diseño de piezas simples para impresión.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>"Modelo básico para impresión 3D"</strong> 🧊</p>
-        <p>Diseñá tus primeras piezas en 3D listas para imprimir.</p>
-        <p><strong>Requisitos:</strong> manejo básico de computadora.</p>
-        <p><strong>Qué necesitas:</strong> laptop con software gratuito (te guiamos en la instalación).</p>
-        <p>🎉 Completamente gratuito.</p>
-        <p>📄 Certificado oficial de K‑lab.</p>
-      </div>
-    `
+    intro: 'Diseña tus primeras piezas en 3D listas para imprimir.',
+    requirements: 'Manejo básico de computadora.',
+    needs: 'Laptop con software gratuito (te guiamos en la instalación).',
+    free: true,
+    certificate: true
   },
   {
     title: 'Conceptos básicos del Modelado 3D',
@@ -406,16 +312,10 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Formas, herramientas y flujo de trabajo.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p><strong>Curso: Conceptos básicos del Modelado 3D</strong></p>
-        <p>⏱ <strong>Duración:</strong> 7 horas</p>
-        <p>📚 <strong>Requisito:</strong> Laptop personal</p>
-        <p>Aprende las bases del modelado tridimensional para dar vida a tus ideas.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Aprende las bases del modelado tridimensional para dar vida a tus ideas.',
+    needs: 'Laptop personal.',
+    free: true,
+    certificate: true
   },
   {
     title: 'Operación de Equipos de Impresión 3D',
@@ -424,16 +324,12 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Configuración y operación segura.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>"Operación de Equipos de Impresión 3D"</strong> 🖨️</p>
-        <p>Aprende a calibrar, operar y mantener impresoras 3D de forma segura.</p>
-        <p><strong>Requisitos:</strong> ninguno, empezamos desde cero.</p>
-        <p><strong>Qué necesitas:</strong> laptop. Las impresoras las ponemos nosotros.</p>
-        <p>🎉 Curso gratuito, incluye materiales de práctica.</p>
-        <p>📄 Certificado oficial al completar el curso.</p>
-      </div>
-    `
+    intro: 'Aprende a calibrar, operar y mantener impresoras 3D de forma segura.',
+    requirements: 'Ninguno, empezamos desde cero.',
+    needs: 'Laptop. Las impresoras las pone K-Lab.',
+    includes: ['Materiales de práctica incluidos'],
+    free: true,
+    certificate: true
   },
   {
     title: 'Modelado e impresión 3D completo',
@@ -442,16 +338,10 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Ruta integral desde diseño hasta impresión.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p><strong>Curso completo de modelado 3D e impresión 3D</strong></p>
-        <p>⏱ <strong>Duración:</strong> 14 horas</p>
-        <p>📚 <strong>Requisito:</strong> Laptop personal</p>
-        <p>Una ruta integral que te lleva desde los fundamentos del diseño en 3D hasta la impresión de tus propias piezas. Ideal para quienes quieren dominar todo el proceso.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Una ruta integral que te lleva desde los fundamentos del diseño en 3D hasta la impresión de tus propias piezas. Ideal para quienes quieren dominar todo el proceso.',
+    needs: 'Laptop personal.',
+    free: true,
+    certificate: true
   },
   {
     title: 'Modelado 3D con IA (Meshy AI)',
@@ -460,19 +350,15 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Creación de objetos cotidianos en 3D usando inteligencia artificial.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Modelado 3D con Uso de IA: Creación de Objetos Cotidianos utilizando Meshy AI</strong> ✨</p>
-        <h4 style="margin-top:1.5rem;">🔍 ¿Qué aprenderás?</h4>
-        <ul style="padding-left:1.5rem;">
-          <li>Fundamentos de la impresión 3D</li>
-          <li>Generación de modelos 3D con Meshy AI</li>
-          <li>Preparación de archivos para impresión</li>
-        </ul>
-        <p><strong>Modalidad:</strong> Virtual por Zoom, de 5:00 p.m. a 8:00 p.m. (3 sesiones).</p>
-        <p>🎉 El curso es totalmente gratuito. Cupo limitado.</p>
-      </div>
-    `
+    intro: 'Crea objetos cotidianos en 3D con ayuda de la inteligencia artificial de Meshy AI.',
+    modality: 'Virtual por Zoom, de 5:00 p.m. a 8:00 p.m. (3 sesiones).',
+    topics: [
+      'Fundamentos de la impresión 3D',
+      'Generación de modelos 3D con Meshy AI',
+      'Preparación de archivos para impresión'
+    ],
+    includes: ['Cupo limitado'],
+    free: true
   },
   {
     title: 'Corte y Grabado Láser Básico',
@@ -481,15 +367,10 @@ export const courses = [
     weeks: null,
     complexity: 'low',
     description: 'Introducción práctica al corte y grabado láser.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Corte y Grabado Láser Básico</strong> 🔦</p>
-        <p>Aprende de forma práctica a utilizar la cortadora y grabadora láser.</p>
-        <p><strong>Quién lo imparte:</strong> José Segales.</p>
-        <p><strong>Modalidad:</strong> Presencial en K-Lab, PROTEC, TEC Campus San Carlos, de 4:30 p.m. a 7:30 p.m. (2 sesiones).</p>
-        <p>Cupo limitado, por orden de llegada.</p>
-      </div>
-    `
+    intro: 'Aprende de forma práctica a utilizar la cortadora y grabadora láser.',
+    modality: 'Presencial en K-Lab, PROTEC, TEC Campus San Carlos, de 4:30 p.m. a 7:30 p.m. (2 sesiones).',
+    instructor: 'José Segales',
+    includes: ['Cupo limitado, por orden de llegada']
   },
 
   {
@@ -499,20 +380,15 @@ export const courses = [
     weeks: '4 semanas',
     complexity: 'low',
     description: 'Fundamentos para negocios digitales.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>⭐ <strong>Requisitos:</strong> ¡Ninguno! Todos pueden participar</p>
-        <h4 style="margin-top:1.5rem;">🔍 ¿Qué aprenderás?</h4>
-        <ul style="padding-left:1.5rem;">
-          <li><strong>Semana 1:</strong> Introducción a modelos de negocio digitales y casos de éxito</li>
-          <li><strong>Semanas 2-3:</strong> Creación de Canvas, propuesta de valor y desarrollo de un MVP</li>
-          <li><strong>Semana 4:</strong> Presentación de startups y estrategias de crecimiento</li>
-        </ul>
-        <p>¡Convierte tus ideas en proyectos digitales innovadores y escalables 🎉</p>
-        <p>El curso es totalmente gratuito.</p>
-        <p>📄 Si cumples con la asistencia y los procedimientos requeridos (como enviar los formularios o tareas solicitadas), recibirás un certificado oficial de K-Lab al finalizar el curso.</p>
-      </div>
-    `
+    intro: 'Convierte tus ideas en proyectos digitales innovadores y escalables.',
+    requirements: 'Ninguno, todos pueden participar.',
+    topics: [
+      { label: 'Semana 1', text: 'Introducción a modelos de negocio digitales y casos de éxito' },
+      { label: 'Semanas 2-3', text: 'Creación de Canvas, propuesta de valor y desarrollo de un MVP' },
+      { label: 'Semana 4', text: 'Presentación de startups y estrategias de crecimiento' }
+    ],
+    free: true,
+    certificate: true
   },
   {
     title: 'Casos prácticos en Startups',
@@ -521,23 +397,17 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Análisis de casos reales.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>¿Te interesa el mundo de las startups?</p>
-        <p>Llega a Costa Rica el curso especial <strong>"Insight de Emprendimiento Digital: Casos prácticos en Startups"</strong></p>
-        <p>🎯 <strong>Requisitos:</strong> Solo interés en el emprendimiento digital, ¡abierto a todos!</p>
-        <p>📄 Certificado oficial de K-Lab si cumples con la asistencia y requisitos mínimos</p>
-        <h4 style="margin-top:1.5rem;">🔎 ¿Qué verás en este curso?</h4>
-        <ul style="padding-left:1.5rem;">
-          <li>Casos reales de éxito y fracaso de startups en Corea y el mundo</li>
-          <li>Espíritu emprendedor y lecciones aprendidas del fracaso</li>
-          <li>Mentoría e ideas prácticas para inversión, expansión y estrategias de salida global</li>
-          <li>Tips para quienes quieren iniciar o escalar su startup</li>
-        </ul>
-        <p>Totalmente gratuito, con interpretación coreano-español.</p>
-        <p>¡Convierte tus ideas en negocios globales y suma experiencia real de la mano de grandes expertos!</p>
-      </div>
-    `
+    intro: 'Curso especial "Insight de Emprendimiento Digital: Casos prácticos en Startups". Convierte tus ideas en negocios globales y suma experiencia real de la mano de grandes expertos.',
+    requirements: 'Solo interés en el emprendimiento digital; abierto a todos.',
+    topics: [
+      'Casos reales de éxito y fracaso de startups en Corea y el mundo',
+      'Espíritu emprendedor y lecciones aprendidas del fracaso',
+      'Mentoría e ideas prácticas para inversión, expansión y estrategias de salida global',
+      'Tips para quienes quieren iniciar o escalar su startup'
+    ],
+    includes: ['Interpretación coreano-español'],
+    free: true,
+    certificate: true
   },
 
   {
@@ -547,15 +417,10 @@ export const courses = [
     weeks: null,
     complexity: 'medium',
     description: 'Configuración y aplicaciones iniciales.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p><strong>Curso de Operación Básica de Raspberry Pi</strong></p>
-        <p>📚 <strong>Requisitos:</strong> Haber completado un curso de Arduino o poseer conocimientos equivalentes</p>
-        <p>Aprende a configurar y sacar el máximo provecho a esta potente placa. Ideal para proyectos IoT y computación física.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
-      </div>
-    `
+    intro: 'Aprende a configurar y sacar el máximo provecho a esta potente placa. Ideal para proyectos IoT y computación física.',
+    requirements: 'Haber completado un curso de Arduino o poseer conocimientos equivalentes.',
+    free: true,
+    certificate: true
   },
 
   {
@@ -565,24 +430,22 @@ export const courses = [
     weeks: '2 semanas',
     complexity: 'low',
     description: 'Robótica educativa, automatización e IA con programación en bloques.',
-    modalContent: `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-        <p>Curso <strong>Introducción a MODI Master Kit + IA</strong> 🤖</p>
-        <p>Desarrolla competencias en robótica educativa, automatización e inteligencia artificial mediante programación en bloques con la plataforma MODI Planet.</p>
-        <p><strong>Modalidad:</strong> Híbrida, 5 días de 3 horas (teoría y práctica), en el Aula K-Lab, PROTEC, TEC Campus San Carlos. Imparte el equipo docente de K-Lab Bolivia.</p>
-        <p>📚 <strong>Requisitos:</strong> Estudiantes de cualquier carrera con manejo básico de computadoras y acceso a internet. No se requieren conocimientos previos de programación o electrónica.</p>
-        <h4 style="margin-top:1.5rem;">🔍 ¿Qué aprenderás?</h4>
-        <ul style="padding-left:1.5rem;">
-          <li><strong>Día 1:</strong> MODI Master Kit y electrónica básica: módulos de entrada, salida y comunicación (linterna automática, ventilador inteligente, automóvil básico)</li>
-          <li><strong>Día 2:</strong> Programación en bloques con MODI Planet: condiciones, bucles y eventos (semáforo inteligente, casa domótica básica)</li>
-          <li><strong>Día 3:</strong> Visualización de datos y automatización con sensores e IMU (detector de terremotos, detector de inundaciones)</li>
-          <li><strong>Día 4:</strong> Introducción a la IA: entrenamiento de modelos con imágenes, sonidos y datos (detector de incendios, clasificación de sonidos)</li>
-          <li><strong>Día 5:</strong> Entrenamiento de datos con sensores y proyecto final integrador</li>
-        </ul>
-        <p>🧰 Se presta el MODI Master Kit durante las actividades. Se trabaja con metodología STEAM y aprendizaje basado en proyectos.</p>
-        <p>🎉 El curso es totalmente gratuito.</p>
-        <p>📄 Certificado oficial de participación de K-Lab al completar el curso.</p>
-      </div>
-    `
+    intro: 'Desarrolla competencias en robótica educativa, automatización e inteligencia artificial mediante programación en bloques con la plataforma MODI Planet.',
+    modality: 'Híbrida, 5 días de 3 horas (teoría y práctica), en el Aula K-Lab, PROTEC, TEC Campus San Carlos.',
+    instructor: 'Equipo docente de K-Lab Bolivia',
+    requirements: 'Estudiantes de cualquier carrera con manejo básico de computadoras y acceso a internet. No se requieren conocimientos previos de programación o electrónica.',
+    topics: [
+      { label: 'Día 1', text: 'MODI Master Kit y electrónica básica: módulos de entrada, salida y comunicación (linterna automática, ventilador inteligente, automóvil básico)' },
+      { label: 'Día 2', text: 'Programación en bloques con MODI Planet: condiciones, bucles y eventos (semáforo inteligente, casa domótica básica)' },
+      { label: 'Día 3', text: 'Visualización de datos y automatización con sensores e IMU (detector de terremotos, detector de inundaciones)' },
+      { label: 'Día 4', text: 'Introducción a la IA: entrenamiento de modelos con imágenes, sonidos y datos (detector de incendios, clasificación de sonidos)' },
+      { label: 'Día 5', text: 'Entrenamiento de datos con sensores y proyecto final integrador' }
+    ],
+    includes: [
+      'Se presta el MODI Master Kit durante las actividades',
+      'Metodología STEAM y aprendizaje basado en proyectos'
+    ],
+    free: true,
+    certificate: true
   }
 ];

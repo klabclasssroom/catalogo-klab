@@ -77,3 +77,22 @@
 .course-modal-content li {
   margin-bottom: 0.5rem;
 }
+
+.modal-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.modal-section h4 {
+  font-size: 1rem;
+}
+
+.course-modal-content .modal-highlights {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}

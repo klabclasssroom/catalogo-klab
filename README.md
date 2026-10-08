@@ -19,13 +19,23 @@ Editar `js/data/courses.js`. Cada curso tiene esta forma:
   weeks: '4 semanas',        // o null
   complexity: 'low',         // 'low' | 'medium' | 'high'
   description: 'Resumen corto para la tarjeta.',
-  modalContent: `
-    <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-      <p>Detalle que se muestra al abrir el curso.</p>
-    </div>
-  `
+
+  // Detalle del modal (todo opcional: lo que no se ponga no se muestra)
+  intro: 'Párrafo de presentación del curso.',
+  modality: 'Virtual por Zoom, martes y jueves de 5:00 p.m. a 8:00 p.m.',
+  instructor: 'Nombre de quien lo imparte',
+  requirements: 'Conocimientos básicos de programación.',
+  needs: 'Laptop personal.',
+  topics: [
+    { label: 'Semana 1', text: 'Tema de la semana' },  // o solo un texto: 'Tema'
+  ],
+  includes: ['Interpretación coreano-español', 'Cupo limitado'],
+  free: true,          // muestra "Curso totalmente gratuito"
+  certificate: true    // muestra el texto del certificado de K-Lab
 }
 ```
+
+El modal se arma solo con esos campos en `js/ui/modal.js`, así todos los cursos se ven con el mismo formato.
 
 El nivel (Básico, Intermedio, Avanzado) se calcula a partir de `complexity` y `duration` en `js/utils/course-utils.js`.
 
