@@ -170,6 +170,40 @@ export const courses = [
       </div>
     `
   },
+  {
+    title: 'Programación Agéntica',
+    category: 'ia',
+    duration: 24,
+    weeks: '5 semanas',
+    complexity: 'medium',
+    description: 'Planificar, controlar y verificar código generado por agentes de IA.',
+    modalContent: `
+      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <p>Curso <strong>Programación Agéntica</strong> 🤖</p>
+        <p>Aprende a planificar, controlar y verificar el código generado por agentes de inteligencia artificial.</p>
+        <p><strong>Modalidad:</strong> Virtual por Zoom, martes y viernes de 5:00 p.m. a 8:00 p.m. (8 sesiones).</p>
+        <p>👩‍💻 Los estudiantes regulares (30 cupos) reciben una cuenta de ChatGPT Codex por 30 días; la asistencia es obligatoria para mantenerla activa. También se puede participar como oyente.</p>
+        <p>🎉 El curso es totalmente gratuito.</p>
+        <p>📄 Certificado de participación de K-Lab al cumplir con la asistencia y las tareas.</p>
+      </div>
+    `
+  },
+  {
+    title: 'Introducción a la IA para la Agricultura',
+    category: 'ia',
+    duration: 12,
+    weeks: '2 semanas',
+    complexity: 'low',
+    description: 'Herramientas de IA aplicadas al agro, sin necesidad de programar.',
+    modalContent: `
+      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <p>Curso <strong>Introductorio de IA para la Agricultura</strong> 🌱</p>
+        <p>Conoce herramientas de inteligencia artificial aplicadas a la agricultura, sin necesidad de programar.</p>
+        <p><strong>Modalidad:</strong> Virtual por Zoom, viernes y sábados de 5:00 p.m. a 8:00 p.m. (4 sesiones).</p>
+        <p>🎉 El curso es totalmente gratuito. Cupo limitado.</p>
+      </div>
+    `
+  },
 
   {
     title: 'Curso básico de Arduino',
@@ -419,6 +453,44 @@ export const courses = [
       </div>
     `
   },
+  {
+    title: 'Modelado 3D con IA (Meshy AI)',
+    category: 'modelado',
+    duration: 9,
+    weeks: null,
+    complexity: 'low',
+    description: 'Creación de objetos cotidianos en 3D usando inteligencia artificial.',
+    modalContent: `
+      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <p>Curso <strong>Modelado 3D con Uso de IA: Creación de Objetos Cotidianos utilizando Meshy AI</strong> ✨</p>
+        <h4 style="margin-top:1.5rem;">🔍 ¿Qué aprenderás?</h4>
+        <ul style="padding-left:1.5rem;">
+          <li>Fundamentos de la impresión 3D</li>
+          <li>Generación de modelos 3D con Meshy AI</li>
+          <li>Preparación de archivos para impresión</li>
+        </ul>
+        <p><strong>Modalidad:</strong> Virtual por Zoom, de 5:00 p.m. a 8:00 p.m. (3 sesiones).</p>
+        <p>🎉 El curso es totalmente gratuito. Cupo limitado.</p>
+      </div>
+    `
+  },
+  {
+    title: 'Corte y Grabado Láser Básico',
+    category: 'modelado',
+    duration: 6,
+    weeks: null,
+    complexity: 'low',
+    description: 'Introducción práctica al corte y grabado láser.',
+    modalContent: `
+      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <p>Curso <strong>Corte y Grabado Láser Básico</strong> 🔦</p>
+        <p>Aprende de forma práctica a utilizar la cortadora y grabadora láser.</p>
+        <p><strong>Quién lo imparte:</strong> José Segales.</p>
+        <p><strong>Modalidad:</strong> Presencial en K-Lab, PROTEC, TEC Campus San Carlos, de 4:30 p.m. a 7:30 p.m. (2 sesiones).</p>
+        <p>Cupo limitado, por orden de llegada.</p>
+      </div>
+    `
+  },
 
   {
     title: 'Introducción al Emprendimiento Digital',
@@ -484,143 +556,33 @@ export const courses = [
         <p>📄 Certificado oficial de K-Lab al cumplir con la asistencia y requisitos.</p>
       </div>
     `
-  }
+  },
 
-  ,{
-  id: 'modi-master-kit-ia-bloques',
-  title: 'Introducción a MODI Master Kit + IA',
-  category: 'iot',
-  level: 'Básico - Intermedio',
-  duration: '5 días / 15 horas',
-  format: 'Teoría / Práctica',
-  modality: 'Híbrida',
-  shortDescription: 'Aprende robótica educativa, automatización e inteligencia artificial usando MODI Master Kit, MODI Planet y programación en bloques.',
-  description: 'El curso Introducción a MODI Master Kit + IA permite a los estudiantes desarrollar competencias básicas e intermedias en robótica educativa, automatización e inteligencia artificial mediante programación en bloques utilizando la plataforma MODI Planet. Durante el curso, los estudiantes aprenderán fundamentos de electrónica, sensores, actuadores y lógica computacional aplicados al ecosistema MODI Master Kit. También explorarán conceptos introductorios de inteligencia artificial mediante entrenamiento de modelos de imágenes, sonidos y datos.',
-  requirements: [
-    'Estudiantes de cualquier carrera',
-    'Manejo básico de computadoras',
-    'Acceso a internet',
-    'No se requieren conocimientos previos de programación o electrónica'
-  ],
-  objectives: [
-    'Identificar los componentes principales del MODI Master Kit',
-    'Reconocer sensores, actuadores y módulos de comunicación',
-    'Comprender la lógica de programación en bloques',
-    'Construir mini proyectos automatizados utilizando sensores y actuadores',
-    'Programar comportamientos interactivos mediante MODI Planet',
-    'Interpretar datos obtenidos de sensores ambientales y módulos IMU',
-    'Diferenciar tipos de entrenamiento de IA: imágenes, sonidos y datos',
-    'Diseñar un proyecto final integrando electrónica, programación e inteligencia artificial'
-  ],
-  competencies: [
-    'Comprender fundamentos básicos de electrónica y automatización',
-    'Programar soluciones interactivas mediante bloques',
-    'Utilizar sensores y actuadores del MODI Master Kit',
-    'Interpretar datos en tiempo real',
-    'Implementar modelos básicos de inteligencia artificial',
-    'Diseñar proyectos tecnológicos con enfoque STEAM',
-    'Resolver problemas mediante pensamiento lógico y creativo'
-  ],
-  methodology: [
-    'STEAM',
-    'Learning by Doing',
-    'Aprendizaje Basado en Proyectos',
-    'Gamificación tecnológica',
-    'Experimentación práctica'
-  ],
-  syllabus: [
-    {
-      title: 'Día 1: Introducción a MODI Master Kit y electrónica básica',
-      topics: [
-        'Qué es MODI Master Kit',
-        'Aplicaciones de MODI en robótica e IA',
-        'Conceptos básicos de electrónica',
-        'Tipos de módulos: entrada, salida y comunicación',
-        'Conexión y sinergia entre módulos',
-        'Introducción a automatización interactiva'
-      ],
-      projects: [
-        'Linterna automática',
-        'Detector de objetos',
-        'Ventilador inteligente',
-        'Generador de colores arcoíris',
-        'Construcción de automóvil básico'
-      ]
-    },
-    {
-      title: 'Día 2: Programación en bloques con MODI Planet',
-      topics: [
-        'Introducción a MODI Planet',
-        'Tour de la plataforma',
-        'Bloques de entrada y salida',
-        'Condiciones, operadores, tiempo, bucles y eventos'
-      ],
-      projects: [
-        'Hola Mundo con MODI Kit',
-        'Impresión de nombre personalizado',
-        'Mensajes automáticos según temperatura',
-        'Semáforo inteligente',
-        'Cuenta regresiva interactiva',
-        'Casa domótica básica'
-      ]
-    },
-    {
-      title: 'Día 3: Visualización de datos y automatización inteligente',
-      topics: [
-        'Lectura y monitoreo de sensores en tiempo real',
-        'Interpretación de datos del módulo IMU',
-        'Coordenadas y movimiento X, Y, Z',
-        'Uso de sensores de temperatura, humedad, ruido, luminosidad, pulso, distancia, joystick e IMU'
-      ],
-      projects: [
-        'Control de motores con joystick',
-        'Movimiento y velocidad variable',
-        'Detector de terremotos usando IMU',
-        'Detector de inundaciones'
-      ]
-    },
-    {
-      title: 'Día 4: Introducción a Inteligencia Artificial con MODI',
-      topics: [
-        'Qué es la inteligencia artificial',
-        'Tipos de IA',
-        'Entrenamiento de modelos',
-        'IA aplicada a imágenes, sonidos y datos',
-        'Registro y uso de herramientas IA en MODI'
-      ],
-      projects: [
-        'Detector de barbijo',
-        'Sistema de asistencia con detección facial y distancia',
-        'Clasificación de sonidos',
-        'Detector inteligente de incendios'
-      ]
-    },
-    {
-      title: 'Día 5: Entrenamiento de datos y proyecto integrador',
-      topics: [
-        'Entrenamiento de datos con sensores',
-        'Interpretación de patrones',
-        'IA basada en datos',
-        'Integración de proyectos inteligentes'
-      ],
-      projects: [
-        'Detector de terremotos mediante IMU entrenado con IA',
-        'Proyecto final integrando sensores, automatización, programación en bloques e inteligencia artificial'
-      ]
-    }
-  ],
-  materials: [
-    'MODI Master Kit',
-    'Laptops o PCs',
-    'Conexión a internet'
-  ],
-  tags: [
-    'MODI',
-    'Robótica',
-    'Inteligencia Artificial',
-    'Programación en bloques',
-    'STEAM',
-    'Automatización'
-  ]
-}
+  {
+    title: 'Introducción a MODI Master Kit + IA',
+    category: 'iot',
+    duration: 15,
+    weeks: '2 semanas',
+    complexity: 'low',
+    description: 'Robótica educativa, automatización e IA con programación en bloques.',
+    modalContent: `
+      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <p>Curso <strong>Introducción a MODI Master Kit + IA</strong> 🤖</p>
+        <p>Desarrolla competencias en robótica educativa, automatización e inteligencia artificial mediante programación en bloques con la plataforma MODI Planet.</p>
+        <p><strong>Modalidad:</strong> Híbrida, 5 días de 3 horas (teoría y práctica), en el Aula K-Lab, PROTEC, TEC Campus San Carlos. Imparte el equipo docente de K-Lab Bolivia.</p>
+        <p>📚 <strong>Requisitos:</strong> Estudiantes de cualquier carrera con manejo básico de computadoras y acceso a internet. No se requieren conocimientos previos de programación o electrónica.</p>
+        <h4 style="margin-top:1.5rem;">🔍 ¿Qué aprenderás?</h4>
+        <ul style="padding-left:1.5rem;">
+          <li><strong>Día 1:</strong> MODI Master Kit y electrónica básica: módulos de entrada, salida y comunicación (linterna automática, ventilador inteligente, automóvil básico)</li>
+          <li><strong>Día 2:</strong> Programación en bloques con MODI Planet: condiciones, bucles y eventos (semáforo inteligente, casa domótica básica)</li>
+          <li><strong>Día 3:</strong> Visualización de datos y automatización con sensores e IMU (detector de terremotos, detector de inundaciones)</li>
+          <li><strong>Día 4:</strong> Introducción a la IA: entrenamiento de modelos con imágenes, sonidos y datos (detector de incendios, clasificación de sonidos)</li>
+          <li><strong>Día 5:</strong> Entrenamiento de datos con sensores y proyecto final integrador</li>
+        </ul>
+        <p>🧰 Se presta el MODI Master Kit durante las actividades. Se trabaja con metodología STEAM y aprendizaje basado en proyectos.</p>
+        <p>🎉 El curso es totalmente gratuito.</p>
+        <p>📄 Certificado oficial de participación de K-Lab al completar el curso.</p>
+      </div>
+    `
+  }
 ];

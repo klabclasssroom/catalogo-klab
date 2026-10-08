@@ -1,3 +1,5 @@
+import { news as localNews } from '../data/news.js';
+
 function getNewsConfig() {
   return window.KLAB_NEWS_CONFIG || {};
 }
@@ -116,7 +118,11 @@ function renderNewsCard(item) {
 }
 
 export async function getNews() {
-  const { sourceUrl } = getNewsConfig();
+  const { sourceType, sourceUrl } = getNewsConfig();
+
+  if (sourceType === 'local') {
+    return sortNews(localNews.map(normalizeNewsItem));
+  }
 
   const url = `${sourceUrl}${sourceUrl.includes('?') ? '&' : '?'}t=${Date.now()}`;
 
