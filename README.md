@@ -1,36 +1,75 @@
-<section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <span class="eyebrow">Capacitación tecnológica • Innovación • Formación profesional</span>
-          <h1>Transformamos talento con formación tecnológica de alto nivel</h1>
-          <p>Descubrí una propuesta académica ordenada, con cursos en 8 áreas de vanguardia. Desde desarrollo web hasta
-            inteligencia artificial y electrónica.</p>
-          <div class="hero-actions">
-            <a href="#catalogo" class="btn btn-primary">Explorar cursos</a>
-            <a href="#contacto" class="btn btn-secondary">Solicitar información</a>
-          </div>
-        </div>
+# Catálogo de cursos K-Lab Costa Rica
 
-        <div class="hero-card reveal">
-          <div class="hero-card-shell">
-            <span class="card-label">K-lab Costa Rica</span>
-            <h3>Catálogo de cursos</h3>
-            <p>Interfaz moderna con filtros inteligentes y exploración visual por categorías.</p>
-            <div class="hero-metrics">
-              <div>
-                <strong id="metricCourses">0</strong>
-                <span>Cursos</span>
-              </div>
-              <div>
-                <strong id="metricAreas">0</strong>
-                <span>Áreas</span>
-              </div>
-              <div>
-                <strong>100%</strong>
-                <span>Responsive</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+Sitio del catálogo de cursos de K-Lab Costa Rica (TEC Campus San Carlos), publicado con GitHub Pages en
+https://klabclasssroom.github.io/catalogo-klab/
+
+Es un sitio estático (HTML, CSS y JavaScript sin dependencias): no hay que compilar nada. Cada cambio que se sube a `main` se publica solo en uno o dos minutos.
+
+## Tareas comunes
+
+### Agregar o editar un curso del catálogo
+
+Editar `js/data/courses.js`. Cada curso tiene esta forma:
+
+```js
+{
+  title: 'Nombre del curso',
+  category: 'ia',            // id de una categoría de js/data/categories.js
+  duration: 12,              // horas totales (número)
+  weeks: '4 semanas',        // o null
+  complexity: 'low',         // 'low' | 'medium' | 'high'
+  description: 'Resumen corto para la tarjeta.',
+  modalContent: `
+    <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+      <p>Detalle que se muestra al abrir el curso.</p>
+    </div>
+  `
+}
+```
+
+El nivel (Básico, Intermedio, Avanzado) se calcula a partir de `complexity` y `duration` en `js/utils/course-utils.js`.
+
+### Publicar una noticia o un próximo curso
+
+Editar `js/data/news.js`:
+
+| Campo | Para qué sirve |
+|---|---|
+| `titulo`, `resumen` | Texto de la tarjeta |
+| `fecha` | Fecha de publicación (`AAAA-MM-DD`); ordena las noticias, la más reciente primero |
+| `inicio`, `cierre` | Opcionales (`AAAA-MM-DD`). Desde `inicio`, "Inscripción abierta" pasa a "En curso"; después de `cierre` la noticia queda "Finalizado" y deja de verse en la página principal (sigue en `noticias.html`) |
+| `estado` | Texto de la etiqueta, por ejemplo "Inscripción abierta" (se resalta en verde) |
+| `duracion`, `modalidad`, `requisitos` | Datos que se muestran en la tarjeta |
+| `gratuito`, `certificado` | `true` para mostrar las etiquetas "Gratuito" y "Certificado K-Lab" |
+| `link` | Destino del botón "Más información" |
+| `imagen` | Afiche (guardarlo en `Fotos/noticias/`). Al tocarlo se abre en tamaño completo |
+
+Las noticias también pueden venir de una hoja de Google publicada como CSV, con esas mismas columnas: en `js/config.js` poner `sourceType: 'csv'` y el enlace en `sourceUrl`.
+
+### Galería
+
+Las fotos se cargan desde Google Drive mediante un Apps Script; el enlace está en `KLAB_GALLERY_CONFIG` dentro de `js/config.js`.
+
+## Estructura
+
+```
+index.html          Página principal (arma sus secciones con partials/)
+noticias.html       Todas las noticias
+galeria.html        Galería completa
+styles.css          Importa los estilos de css/
+partials/           Secciones HTML de la página principal
+css/                Estilos por sección
+js/config.js        Fuentes de datos de noticias y galería
+js/data/            Cursos, categorías y noticias
+js/ui/              Renderizado e interacción (catálogo, modal, noticias, galería, menú)
+js/utils/           Funciones auxiliares del catálogo
+Fotos/, logos/      Imágenes del sitio
+```
+
+## Probar en local
+
+Como el sitio carga módulos y partes HTML con `fetch`, hay que abrirlo con un servidor y no con doble clic sobre el archivo. Por ejemplo:
+
+```
+npx serve .
+```

@@ -77,8 +77,35 @@ function normalizeNewsItem(item, index = 0) {
     gratuito: normalizeBoolean(item.gratuito ?? item.free),
     certificado: normalizeBoolean(item.certificado ?? item.certificate),
     link: item.link || item.url || '#contacto',
-    imagen: item.imagen || item.image || ''
+    imagen: item.imagen || item.image || '',
+    inicio: item.inicio || item.start || '',
+    cierre: item.cierre || item.end || ''
   };
+}
+
+const STATUS_FINISHED = 'Finalizado';
+const STATUS_IN_PROGRESS = 'En curso';
+
+// Fecha local de hoy en formato AAAA-MM-DD, comparable con las fechas de las noticias.
+function todayIso() {
+  const now = new Date();
+  const pad = value => String(value).padStart(2, '0');
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
+// Ajusta el estado según las fechas: después del cierre queda "Finalizado" y,
+// si la inscripción estaba abierta y el curso ya empezó, pasa a "En curso".
+function withComputedStatus(item, today = todayIso()) {
+  if (item.cierre && item.cierre < today) {
+    return { ...item, estado: STATUS_FINISHED, finalizado: true };
+  }
+
+  const started = item.inicio && item.inicio <= today;
+  if (started && statusClassFor(item.estado) === 'is-open') {
+    return { ...item, estado: STATUS_IN_PROGRESS, finalizado: false };
+  }
+
+  return { ...item, finalizado: false };
 }
 
 function sortNews(news) {
@@ -86,7 +113,20 @@ function sortNews(news) {
 }
 
 function statusClassFor(status = '') {
-  return status.toLowerCase().includes('abierta') ? 'is-open' : '';
+  const normalized = status.toLowerCase();
+  if (normalized.includes('abierta')) return 'is-open';
+  if (normalized === STATUS_FINISHED.toLowerCase()) return 'is-closed';
+  if (normalized === STATUS_IN_PROGRESS.toLowerCase()) return 'is-soon';
+  return '';
+}
+
+function renderNewsImage(item) {
+  if (!item.imagen) return '';
+  return `
+    <a class="news-image-link" href="${item.imagen}" target="_blank" rel="noopener">
+      <img class="news-image" src="${item.imagen}" alt="Afiche: ${item.titulo}" loading="lazy">
+    </a>
+  `;
 }
 
 function renderNewsCard(item) {
@@ -95,7 +135,7 @@ function renderNewsCard(item) {
 
   return `
     <article class="news-card reveal visible">
-      ${item.imagen ? `<img class="news-image" src="${item.imagen}" alt="">` : ''}
+      ${renderNewsImage(item)}
       <div class="news-card-topline">
         <span class="news-category">${item.categoria || 'Noticia'}</span>
         <span class="news-status ${statusClass}">${item.estado || 'Publicado'}</span>
@@ -117,11 +157,16 @@ function renderNewsCard(item) {
   `;
 }
 
+function prepareNews(items) {
+  const today = todayIso();
+  return sortNews(items.map((item, index) => withComputedStatus(normalizeNewsItem(item, index), today)));
+}
+
 export async function getNews() {
   const { sourceType, sourceUrl } = getNewsConfig();
 
   if (sourceType === 'local') {
-    return sortNews(localNews.map(normalizeNewsItem));
+    return prepareNews(localNews);
   }
 
   const url = `${sourceUrl}${sourceUrl.includes('?') ? '&' : '?'}t=${Date.now()}`;
@@ -137,7 +182,7 @@ export async function getNews() {
   const csvText = await response.text();
   const rows = parseCsv(csvText);
 
-  return sortNews(rows.map(normalizeNewsItem));
+  return prepareNews(rows);
 }
 
 export async function renderLatestNews(limit = 3) {
@@ -147,7 +192,7 @@ export async function renderLatestNews(limit = 3) {
 
   try {
     const news = await getNews();
-    const visibleNews = news.slice(0, limit);
+    const visibleNews = news.filter(item => !item.finalizado).slice(0, limit);
     grid.innerHTML = visibleNews.map(renderNewsCard).join('');
     if (empty) empty.hidden = visibleNews.length > 0;
   } catch (error) {
