@@ -52,6 +52,11 @@
 
   .menu-toggle {
     display: flex;
+    order: 3;
+  }
+
+  .nav-cta {
+    margin-left: auto;
   }
 }
 
@@ -97,30 +102,39 @@
     flex: 0 0 260px;
   }
 
+  /* Logos y botón escalan con el ancho para que quepan junto al menú en cualquier celular */
+  .nav {
+    gap: clamp(0.35rem, 2vw, 0.75rem);
+  }
+
   .brand-group {
-    gap: clamp(0.5rem, 2.5vw, 0.9rem);
+    gap: clamp(0.3rem, 1.6vw, 0.75rem);
   }
 
   .brand-logo {
-    width: clamp(72px, 26vw, 120px);
+    width: min(22vw, 120px);
     max-height: 42px;
   }
 
   .brand-divider {
-    height: 24px;
+    height: min(5vw, 28px);
   }
 
   .brand-partner-logo {
-    height: clamp(16px, 6vw, 26px);
+    height: min(4.6vw, 26px);
   }
 
-  .nav {
-    gap: 0.75rem;
+  .nav-cta {
+    padding: 0.55em 1em;
+    font-size: clamp(10px, 3.3vw, 0.9rem);
   }
 
-  /* En celular el botón deja espacio al logo del TEC; "Cursos" sigue en el menú */
-  .nav .btn {
+  .nav-cta-long {
     display: none;
+  }
+
+  .nav-cta-short {
+    display: inline;
   }
 
   .partner-logo {
