@@ -4,6 +4,22 @@
 // después del cierre, la noticia queda "Finalizado" y deja de mostrarse en la página principal.
 export const news = [
   {
+    titulo: 'Introducción a MODI Kit',
+    fecha: '2026-10-20',
+    inicio: '2026-10-31',
+    cierre: '2026-10-31',
+    categoria: 'Curso',
+    estado: 'Inscripción abierta',
+    resumen: 'Robótica, sensores y programación en bloques con MODI Master Kit. Lo imparte en forma virtual el equipo docente de K-Lab Bolivia, con estudiantes presenciales en el aula de K-Lab, TEC San Carlos.',
+    duracion: '31 de octubre, 8:00 a.m. a 4:00 p.m. (1 día)',
+    modalidad: 'Híbrida',
+    requisitos: 'Cupo limitado: inscribite con el código QR del afiche',
+    gratuito: false,
+    certificado: false,
+    link: 'https://www.instagram.com/p/DeuDBmjpldF/',
+    imagen: 'Fotos/noticias/modi-kit.jpg'
+  },
+  {
     titulo: 'Modelado e Impresión 3D Básico',
     fecha: '2026-10-02',
     inicio: '2026-10-07',
@@ -14,7 +30,7 @@ export const news = [
     duracion: '7, 8, 14 y 15 de octubre, 4:30 p.m. a 7:30 p.m.',
     modalidad: 'Presencial',
     requisitos: 'Cupo limitado: inscribite con el código QR del afiche',
-    gratuito: false,
+    gratuito: true,
     certificado: false,
     link: 'https://www.instagram.com/p/DeAZgqmBcMV/',
     imagen: 'Fotos/noticias/modelado-impresion-3d-basico.jpg'
