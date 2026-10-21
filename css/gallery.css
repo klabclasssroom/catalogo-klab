@@ -82,7 +82,7 @@
 }
 
 .gallery-full-btn {
-  min-width: 260px;
+  min-width: min(260px, 100%);
 }
 
 .gallery-load-more {

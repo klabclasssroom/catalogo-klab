@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
   min-height: 80px;
 }
 
@@ -23,9 +23,33 @@
   object-fit: contain;
 }
 
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-shrink: 0;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(148, 163, 184, 0.3);
+}
+
+.brand-partner-logo {
+  height: 30px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity var(--transition);
+}
+
+.brand-partner:hover .brand-partner-logo {
+  opacity: 1;
+}
+
 .menu {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
   align-items: center;
 }
 

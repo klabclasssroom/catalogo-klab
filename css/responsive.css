@@ -46,6 +46,10 @@
   .menu-toggle {
     display: flex;
   }
+
+  .partner-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -54,11 +58,36 @@
   }
 
   .hero-copy h1 {
-    font-size: 2.4rem;
+    font-size: clamp(1.9rem, 9vw, 2.4rem);
+  }
+
+  .hero-card-shell {
+    padding: 1.5rem;
+  }
+
+  .hero-metrics {
+    gap: 0.5rem;
+  }
+
+  .hero-metrics div {
+    padding: 0.75rem 0.25rem;
+  }
+
+  .hero-metrics span {
+    font-size: 0.8rem;
   }
 
   .section {
     padding: 3rem 0;
+  }
+
+  .location-shell {
+    padding: 1.25rem;
+  }
+
+  .section-head.split {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .gallery-card {
@@ -68,4 +97,54 @@
       width: 120px;
       max-height: 42px;
     }
+
+  .brand-divider,
+  .brand-partner {
+    display: none;
+  }
+
+  .nav {
+    gap: 0.75rem;
+  }
+
+  .nav .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .partner-logo {
+    height: 80px;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1340px) {
+  .brand-group {
+    gap: 0.75rem;
+  }
+
+  .brand-logo {
+    width: 125px;
+  }
+
+  .brand-partner-logo {
+    height: 24px;
+  }
+
+  .menu {
+    gap: 1.1rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1119px) {
+  .brand-divider,
+  .brand-partner {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .nav .btn {
+    display: none;
+  }
 }

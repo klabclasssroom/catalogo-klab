@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.hero-grid > * {
+  min-width: 0;
+}
+
 .eyebrow,
 .section-kicker {
   text-transform: uppercase;
@@ -78,7 +82,7 @@
 
 .hero-metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 2rem;
 }

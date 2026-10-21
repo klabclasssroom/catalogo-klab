@@ -43,6 +43,16 @@ body {
   overflow-x: hidden;
 }
 
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
 img {
   max-width: 100%;
   display: block;

@@ -9,6 +9,10 @@
   padding: 2rem;
 }
 
+.location-shell > * {
+  min-width: 0;
+}
+
 .location-pills {
   display: flex;
   flex-wrap: wrap;
